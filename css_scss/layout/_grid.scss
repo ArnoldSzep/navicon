@@ -1,0 +1,197 @@
+// ***
+// Gutter
+// Get the gutter for the size, if no match, use the first item
+@function gutter($size: ''){
+    $found_label: '';
+    $first_found: false;
+    $first: '';
+
+    @each $label, $value in $gutter{
+        @if $first_found == false{
+            $first: $value;
+            $first_found: true;
+        }
+        @if $size == $label{
+            $found_label: $value;
+        }
+    }
+
+    @if $found_label == ''{
+        @return $first;
+    } @else{
+        @return $found_label;
+    }
+}
+
+.container{
+    width: 100%;
+    max-width: rem($site_width);
+    margin: auto;
+    padding: gutter()/2 gutter();
+    box-sizing: border-box;
+
+    position: relative;
+
+    &:after{
+        content: '';
+        display: block;
+
+        clear: both;
+    }
+}
+
+.grid_row{
+    margin: 0 (-(gutter())/2);
+
+    clear: both;
+
+    &.reverse{
+        > .grid_col{
+            float: right;
+        }
+    }
+
+    &:after{
+        content: '';
+        display: block;
+
+        clear: both;
+    }
+}
+
+.grid_col{
+    width: 100%;
+    min-height: 1px;
+    float: left;
+    padding: gutter()/2;
+    box-sizing: border-box;
+
+    &.reverse{
+        float: right;
+    }
+
+    &.vtop{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
+
+@each $label, $value in $gutter{
+    @include min_mq($label){
+        .container{
+            padding: $value/2 $value;
+        }
+
+        .grid_col{
+            padding: $value/2;
+        }
+
+        .grid_row{
+            margin: 0 (-$value/2);
+        }
+    }
+}
+
+
+// ***
+// Generated grid cols
+@mixin grid_cols($grid_cols){
+    @each $label, $value in $mqs{
+        @include min_mq($label){
+            @for $i from 1 through $grid_cols{
+                .#{$label}#{$i}_#{$grid_cols}{
+                    width: percentage($i/$grid_cols);
+                }
+            }
+        }
+    }
+}
+
+@mixin grid_cols_zero($grid_cols){
+    @each $label, $value in $mqs{
+        // create the media query-less classes
+        @for $i from 1 through $grid_cols{
+            // Dont create unnecessary classes
+            @if percentage($i/$grid_cols) > 24 and percentage($i/$grid_cols) < 76{
+                .zero#{$i}_#{$grid_cols}{
+                    width: percentage($i/$grid_cols);
+                }
+            }
+        }
+    }
+}
+
+@include grid_cols_zero($grid_cols);
+@include grid_cols($grid_cols);
+
+
+
+// ***
+// Flexbox with media queries
+@mixin grid_flex($grid_cols){
+    @each $label, $value in $mqs{
+        @include min_mq($label){
+            .#{$label}_flex{
+                display: flex;
+            }
+        }
+    }
+}
+
+.flex{
+    display: flex;
+
+    &--wrap{
+        flex-wrap: wrap;
+    }
+
+    &--center{
+        align-items: center;
+        align-content: center;
+    }
+}
+
+@include grid_flex($grid_cols);
+
+
+// ***
+// Grid paddigns
+@mixin grid_paddings($grid_cols){
+    @each $label, $value in $mqs{
+        @include min_mq($label){
+            .#{$label}_nopd{
+                padding: 0;
+            }
+            .#{$label}_nopd_t{
+                padding-top: 0;
+            }
+            .#{$label}_nopd_r{
+                padding-right: 0;
+            }
+            .#{$label}_nopd_b{
+                padding-bottom: 0;
+            }
+            .#{$label}_nopd_l{
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+.nopd{
+    padding: 0;
+}
+.nopd_t{
+    padding-top: 0;
+}
+.nopd_r{
+    padding-right: 0;
+}
+.nopd_b{
+    padding-bottom: 0;
+}
+.nopd_l{
+    padding-left: 0;
+}
+
+@include grid_paddings($grid_cols);

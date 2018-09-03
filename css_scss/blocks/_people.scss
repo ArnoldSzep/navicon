@@ -1,0 +1,61 @@
+.people {
+    justify-content: center;
+    text-align: center;
+
+    span {
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+
+        @include min_mq(md) {
+            margin: 20px 30px;
+        }
+
+
+        &:hover {
+            img {
+                filter: grayscale(0);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                transform: scale(1.1);
+            }
+
+            h3 {
+                background: $color_primary;
+                color: $color_secondary;
+            }
+        }
+    }
+
+    h3 {
+        padding: 0 20px;
+        display: inline-block;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 6px;
+        background: $color_secondary_light;
+        transition: background-color .2s, color .2s;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: block;
+        margin: auto;
+        overflow: hidden;
+        filter: grayscale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+        transform: scale(1);
+        transition: filter .2s, box-shadow .2s, transform .2s;
+
+        @include min_mq(sm) {
+            width: 250px;
+            height: 250px;
+        }
+
+        @include min_mq(md) {
+            width: 250px;
+            height: 250px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+// ***
+// Colors
+$color_primary: #ffd500;
+$color_secondary: #0a2f5c;
+$color_secondary_light: #0b94c5;
+$color_warning: #e34040;
+$color_success: #238435;
+$color_gray: #828181;
+$color_gray_dark: #464343;
+$color_gray_darker: #2e2e2e;
+$color_gray_darkest: #070707;
+$color_gray_light: #dedede;
+$color_gray_lighter: #e8e8e8;
+$color_gray_lightest: #f2f2f2;
+
+// ***
+// GRID SETTINGS
+$site_width: 1300; // unitless pixel -> converted to em
+$grid_cols: 12;
+
+// Media Query Sizes
+$mqs: (
+'sm': (520/16) * 1em,
+'md': (980/16) * 1em,
+'lg': (1220/16) * 1em
+);
+
+// Gutters -> DONT use em to avoid wrong grid lineup
+// !! Only use sizes available in $mqs
+$gutter: (
+'sm': (10/16) * 1rem,
+'md': (50/16) * 1rem
+);

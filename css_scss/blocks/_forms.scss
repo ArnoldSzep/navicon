@@ -1,0 +1,30 @@
+form{
+    max-width: 400px;
+
+    input{
+        display: block;
+        border: 1px solid $color_gray_light;
+        border-radius: 6px;
+        height: 40px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        &:focus,
+        &:active{
+            border-color: $color_primary;
+        }
+
+        &.error{
+            border: 1px solid $color_warning;
+        }
+    }
+
+    label{
+        display: block;
+        padding-top: 10px;
+        padding-left: 2px;
+        line-height: 1;
+        font-weight: 700;
+    }
+}

@@ -1,0 +1,71 @@
+.mn_footer {
+    background: linear-gradient($color_secondary_light, $color_secondary);
+    color: #fff;
+    position: relative;
+    font-size: 16px;
+    text-align: center;
+
+    @include min_mq(md) {
+        text-align: left;
+    }
+
+    h2 {
+        color: inherit;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &-menu {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        a {
+            display: inline-block;
+            padding: 2px 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    }
+
+    &-contact {
+        padding-top: 40px;
+
+        a {
+            display: inline-block;
+            padding: 2px 0;
+        }
+    }
+
+    &-logo {
+        margin: auto;
+        padding-bottom: 40px;
+
+        img {
+            max-width: 250px;
+            display: block;
+        }
+    }
+
+    &-bottom {
+        padding: 20px 0;
+        line-height: 1.2;
+        color: #fff;
+        background: $color_secondary;
+        text-align: center;
+
+        a {
+            display: inline-block;
+            border-left: 1px solid #fff;
+            margin-left: 10px;
+            padding-left: 10px;
+        }
+    }
+}

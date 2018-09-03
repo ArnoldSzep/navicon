@@ -1,0 +1,98 @@
+.noma_b {
+    margin-bottom: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Calibri', sans-serif;
+    line-height: 1.8;
+    background: $color_gray_lightest;
+    color: $color_gray_dark;
+    font-size: 17px;
+
+    @include min_mq(md) {
+        font-size: 18px;
+    }
+}
+
+h1,
+.h1 {
+    font-size: 38px;
+    margin-bottom: 26px;
+    line-height: 1;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    @include min_mq(md) {
+        font-size: 48px;
+    }
+
+
+    &::after {
+        content: '';
+        height: 14px;
+        width: 80%;
+        background: $color_primary;
+        position: absolute;
+        bottom: -2px;
+        left: 10px;
+        z-index: -1;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+h2,
+.h2 {
+    color: $color_secondary_light;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
+    border-bottom: 2px dashed currentColor;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    color: $color_secondary_light;
+
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.cl{
+    clear: both;
+}
+
+.mn_content {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    min-height: 60vh;
+}
+
+.error{
+    font-weight: 700;
+    color: $color_warning;
+}
+
+.success{
+    font-weight: 700;
+    color: $color_success;
+}

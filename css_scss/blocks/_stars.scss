@@ -1,0 +1,27 @@
+.header_star {
+    width: 20px;
+    height: 20px;
+    background: url("/img/star.svg") 50% 50% no-repeat;
+    background-size: contain;
+    position: absolute;
+    opacity: 0.8;
+    animation: twinkle .5s .2s infinite alternate;
+}
+
+.header_star:nth-child(2n) {
+    animation-delay: .5s;
+}
+
+.header_star:nth-child(3n) {
+    animation-delay: .25s;
+}
+
+@keyframes twinkle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(60deg);
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "name": "user1",
+            "email": "test@test.hu",
+            "password": "aa",
+            "phone": "111"
+        },
+        {
+            "name": "user2",
+            "email": "test@test.hu",
+            "password": "bb",
+            "phone": "222"
+        }
+    ]
+}

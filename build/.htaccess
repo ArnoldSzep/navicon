@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} !^(ACT=.*)$ [NC]
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5})$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(home|inc|publishers|sidebars|about|include-template|testing|advertisers|products|sitemap|style|ad-choices|social-bar|search|404||members|P[0-9]{2,8}) [NC]
+
+RewriteRule (.*) /php/page/$1 [L]

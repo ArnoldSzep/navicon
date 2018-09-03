@@ -1,0 +1,32 @@
+.references{
+    justify-content: center;
+
+    a{
+        display: inline-block;
+        width: 50%;
+        padding: 10px;
+        box-sizing: border-box;
+        
+        @include min_mq(sm){
+            width: 200px;
+            margin: 20px;
+        }
+        @include min_mq(md){
+            width: 240px;
+            transform: scale(1);
+
+            transition: transform .2s;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+        @include min_mq(lg){
+            margin: 60px;
+        }
+    }
+
+    img{
+        max-width: 100%;
+    }
+}

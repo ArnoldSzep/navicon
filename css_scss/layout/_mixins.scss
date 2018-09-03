@@ -1,0 +1,68 @@
+
+// ***
+// Media Queries
+@mixin min_mq($size){
+    @each $label, $value in $mqs{
+        @if $size == $label{
+            @media (min-width: $value){
+                @content;
+            }
+        }
+    }
+}
+
+@mixin max_mq($size){
+    @each $label, $value in $mqs{
+        @if $size == $label{
+            @media not screen and (min-width: $value){
+                @content;
+            }
+        }
+    }
+}
+
+// ***
+// Arrow
+@mixin arrow($direction, $color, $size1, $size2: 0, $size3: 0){
+    height: 0;
+    width: 0;
+
+    @if $size2 == 0 {
+        $size2: $size1;
+        $size3: $size1;
+    }
+
+    @if $direction == 'up' {
+        border-left: $size1 solid transparent;
+        border-right: $size2 solid transparent;
+        border-bottom: $size3 solid $color;
+
+    } @else if $direction == 'right' {
+        border-top: $size1 solid transparent;
+        border-bottom: $size2 solid transparent;
+        border-left: $size3 solid $color;
+
+    } @else if $direction == 'down' {
+        border-right: $size1 solid transparent;
+        border-left: $size2 solid transparent;
+        border-top: $size3 solid $color;
+
+    } @else if $direction == 'left' {
+        border-top: $size1 solid transparent;
+        border-bottom: $size2 solid transparent;
+        border-right: $size3 solid $color;
+    }
+}
+
+
+// ***
+// PX to EM
+$base: 16;
+
+@function em($px, $base: $base) {
+    @return ($px / $base) * 1em;
+}
+
+@function rem($px, $base: $base) {
+    @return ($px / $base) * 1rem;
+}

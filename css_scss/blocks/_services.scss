@@ -1,0 +1,57 @@
+.service_feat {
+    background: #fff;
+    box-shadow: 4px 6px 8px rgba(#000, 0.1);
+    margin: 50px auto 70px;
+    padding: 4px;
+
+    @include min_mq(md) {
+        padding: 30px;
+    }
+
+    h2 {
+        overflow: hidden;
+        max-width: 440px;
+        margin: 0 auto 20px;
+    }
+
+    &-img {
+        display: block;
+        max-width: 440px;
+        margin: -40px auto 5%;
+        background: $color_gray_lighter;
+        border: 1px solid #fff;
+        box-shadow: 4px 6px 8px rgba(#000, 0.1);
+
+        @include min_mq(md) {
+            margin: -20% auto -10%;
+            margin-right: 20px;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+    &-desc {
+        max-width: 440px;
+        margin: auto;
+        overflow: hidden;
+    }
+}
+
+.service {
+    padding: 20px 0;
+    max-width: 600px;
+    margin: auto;
+
+    &-img {
+        width: 100%;
+        padding-bottom: 50%;
+        background: $color_gray_lighter;
+    }
+
+    &-desc {
+        overflow: hidden;
+    }
+}
